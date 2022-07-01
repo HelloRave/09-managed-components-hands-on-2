@@ -10,7 +10,9 @@ export default function GST(props){
           type="text"
           name="bill"
           value={props.bill}
-          onChange={props.updateField}
+          onChange={async (event) => {
+            await props.updateField(event)
+            props.calculate()}}
         />
         <button onClick={props.calculate}>Calculate GST</button>
       </div>
